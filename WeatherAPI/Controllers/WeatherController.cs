@@ -21,19 +21,20 @@ namespace WeatherAPI.Controllers
         }
 
         [HttpGet("/{lat}/{lon}/{units}")]
-        public async Task<ActionResult<double>> GetTemperature(decimal lat, decimal lon, string key)
+        public async Task<ActionResult<double>> GetTemperature(double lat, double lon, string key, string units)
         {
             var request = new WeatherRequest
             {
                 Lat = lat,
                 Lng = lon,
-                ApiKey = _configuration["Secrets:ApiKey"]
+                ApiKey = _configuration["Secrets:ApiKey"],
+                Units = units
             };
             var response = await _openWeatherHttp.GetWeather(request);
             if(response.IsSuccessStatusCode)
             {
-                var responseBody = response.Content;
-                var temperature = responseBody.GetProperty("main").GetProperty("temp").GetDecimal;
+                var weatherResponse = response.Content;
+                var temperature = weatherResponse.Main.Temp;
                 return Ok(temperature);
             }
             else

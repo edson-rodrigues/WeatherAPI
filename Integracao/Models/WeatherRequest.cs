@@ -5,9 +5,9 @@ namespace Integracao.Models
     public class WeatherRequest
     {
         [AliasAs("lat")]
-        public decimal Lat { get; set; }
+        public double Lat { get; set; }
         [AliasAs("lon")]
-        public decimal Lng { get; set; }
+        public double Lng { get; set; }
         [AliasAs("appid")]
         public string? ApiKey { get; set; }
         [AliasAs("units")]

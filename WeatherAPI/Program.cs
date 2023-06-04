@@ -14,9 +14,12 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddRefitClient<IOpenWeatherHttp>()
-        .ConfigureHttpClient(c => c.BaseAddress = new Uri(openWeatherAdress)); 
+        .ConfigureHttpClient(c => c.BaseAddress = new Uri(openWeatherAdress)
+                             ); 
 builder.Services.AddRefitClient<IOpenGeoHttps>()
-        .ConfigureHttpClient(c => c.BaseAddress = new Uri(openGeoAdress));
+        .ConfigureHttpClient(c => c.BaseAddress = new Uri(openGeoAdress)
+        );
+        
 CultureInfo.DefaultThreadCurrentCulture = CultureInfo.InvariantCulture;
 CultureInfo.DefaultThreadCurrentUICulture = CultureInfo.InvariantCulture;
 
