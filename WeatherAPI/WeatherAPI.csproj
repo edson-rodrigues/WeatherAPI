@@ -15,4 +15,8 @@
     <ProjectReference Include="..\Integracao\Integracao.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Servicos\" />
+  </ItemGroup>
+
 </Project>

@@ -16,7 +16,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddRefitClient<IOpenWeatherHttp>()
         .ConfigureHttpClient(c => c.BaseAddress = new Uri(openWeatherAdress)
                              ); 
-builder.Services.AddRefitClient<IOpenGeoHttps>()
+builder.Services.AddRefitClient<IOpenGeoHttp>()
         .ConfigureHttpClient(c => c.BaseAddress = new Uri(openGeoAdress)
         );
         
